@@ -1,4 +1,4 @@
-# serin-live
+# Serin-Live
 
 > Built by [Naisha Dave](https://github.com/Naisha-D)
 

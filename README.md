@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# serin-live
 
-## Getting Started
+> Built by [Naisha Dave](https://github.com/Naisha-D)
 
-First, run the development server:
+A real-time collaborative landing page for [Serin AI](https://serin-ai.com) — where every visitor is a live participant, not just a reader.
+
+**→ [Try it live](https://serin-collab-1vjtaehgf-davenaisha.vercel.app)**  
+**→ Open two tabs. Pick different roles. Watch it come alive.**
+
+---
+
+## What makes this different
+
+Most landing pages are static. This one knows you're here.
+
+Every visitor appears as a glowing node in a live constellation — placed on the Talent or Organization side based on the role they pick on landing. Lines draw between talent and org pairs in real time. The page doesn't describe what Serin does. It *shows* it.
+
+---
+
+## Real-time features
+
+**🌌 Live Constellation**  
+Every visitor is a node. Talent on the left, organizations on the right. Lines connect matching pairs. The map updates live as people join and leave.
+
+**🖱️ Shared Cursors**  
+See every other user's cursor in real time, labeled with their role. Viewport-relative so they stay accurate regardless of scroll position.
+
+**💬 Live Thought Stream**  
+Type anything — it appears for every connected user instantly. Thoughts persist across refreshes via Liveblocks `LiveList`, not just broadcast and lost.
+
+**🔓 Collective Feature Unlock**  
+Feature cards start locked. Each has a hover threshold — when enough live users hover, the card unlocks for *everyone* simultaneously. A shared moment of discovery.
+
+**⚡ Live Reactions**  
+Four reactions with counts that sync across all users in real time. Select to increment, deselect to decrement — updates for everyone instantly.
+
+**👥 Live Presence**  
+See exactly how many people are on the page right now, broken down by role.
+
+---
+
+## Tech Stack
+
+- **Next.js 14** — App Router
+- **Liveblocks** — presence, shared storage, broadcast events
+- **Framer Motion** — animations
+- **TypeScript** — full type safety across all real-time state
+- **Vercel** — deployment
+
+---
+
+## Why Liveblocks
+
+I've used Supabase before — it was the comfortable choice. I went with Liveblocks because presence and cursor sync are first-class primitives there, not adaptations of a database change stream. The right tool for the right problem. Cleaner code, faster build, better result.
+
+---
+
+## A few decisions worth knowing
+
+- **Cursors are `position: fixed`**, not absolute — because users are almost never at the same scroll position. Viewport-relative coordinates are the correct approach.
+- **Role lives in `presence`**, not `storage` — presence is ephemeral and per-user by design. Storage is for shared persistent state.
+- **`LiveObject` uses `.set()`**, not spread — spreading breaks Liveblocks' mutation tracking and kills real-time sync silently.
+- **All hooks declared before conditional returns** — Rules of Hooks, enforced strictly throughout.
+
+---
+
+## Project structure
+
+```
+src/
+├── app/                    # Next.js app router, layout, global styles
+├── components/
+│   ├── sections/           # Hero, ThoughtStream, Features, HowItWorks, Footer
+│   ├── ui/                 # Navbar, RoleModal, LiveCursor, LivePresence
+│   └── canvas/             # Constellation — canvas-based live node map
+├── liveblocks/config.ts    # Liveblocks client + Presence, Storage, Event types
+└── lib/utils.ts            # Color palette, formatting helpers
+```
+
+---
+
+## Run locally
+
+```bash
+git clone https://github.com/Naisha-D/serin-live.git
+cd serin-live
+npm install
+```
+
+Create `.env.local`:
+```
+NEXT_PUBLIC_LIVEBLOCKS_PUBLIC_KEY=pk_...
+LIVEBLOCKS_SECRET_KEY=sk_...
+```
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open two tabs at `localhost:3000` and pick different roles to test real-time sync.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+*Built by Naisha Dave for Blink Analytics*

@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { useOthers } from "@/liveblocks/config";
-import { link } from "fs/promises";
 
 export default function Navbar() {
   const others = useOthers();
@@ -30,21 +29,17 @@ export default function Navbar() {
     >
       {/* Logo */}
       <div style={{ display: "flex", alignItems: "center", gap: "8px", flexShrink: 0 }}>
-        <div
-          style={{
-            width: "24px",
-            height: "24px",
-            borderRadius: "50%",
-            background: "linear-gradient(135deg, #3b82f6, #6366f1)",
-            flexShrink: 0,
-          }}
-        />
+        <img 
+            src="/serin-logo.svg" 
+            alt="Serin" 
+            style={{ width: "32px", height: "19px", filter: "brightness(0) invert(1)", flexShrink: 0 }} 
+            />
         <span style={{ fontSize: "16px", fontWeight: 500, color: "#e8eaf6" }}>
           Serin
         </span>
       </div>
 
-      {/* Nav links — hidden on mobile */}
+      {/* Nav links */}
       <div
         style={{
           display: "flex",

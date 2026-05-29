@@ -9,6 +9,10 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@liveblocks/client": "^3.19.3",
+    "@liveblocks/react": "^3.19.3",
+    "@liveblocks/react-ui": "^3.19.3",
+    "framer-motion": "^12.40.0",
     "next": "16.2.6",
     "react": "19.2.4",
     "react-dom": "19.2.4"

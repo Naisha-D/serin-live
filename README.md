@@ -1,6 +1,8 @@
 # Serin-Live
 
-A real-time collaborative landing page for [Serin AI](https://serin-ai.com) — where every visitor is a live participant, not just a reader.
+A real-time collaborative landing page for where every visitor is a live participant, not just a reader.
+
+This project was designed around Serin AI's talent-organization matching concept.
 
 **→ [Try it live](https://serin-collab-1vjtaehgf-davenaisha.vercel.app)**  
 **→ Open two tabs. Pick different roles. Watch it come alive.**
@@ -99,4 +101,4 @@ Open two tabs at `localhost:3000` and pick different roles to test real-time syn
 
 ---
 
-*Built by [Naisha Dave](https://github.com/Naisha-D) for Blink Analytics*
+*Built by [Naisha Dave](https://github.com/Naisha-D)*

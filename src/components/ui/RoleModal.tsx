@@ -1,7 +1,6 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useMyPresence } from "@/liveblocks/config";
 import { useState, useEffect } from "react";
 
 type Props = {
@@ -9,11 +8,11 @@ type Props = {
 };
 
 export default function RoleModal({ onSelect }: Props) {
-  const [, updatePresence] = useMyPresence();
-  const [visible, setVisible] = useState(false);
+  
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    // Small delay so the page renders first
+    // Small delay to allow page rendering before showing the modal
     const timer = setTimeout(() => setVisible(true), 600);
     return () => clearTimeout(timer);
   }, []);
@@ -49,7 +48,7 @@ export default function RoleModal({ onSelect }: Props) {
           >
             {/* Logo */}
             <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", marginBottom: "24px" }}>
-              <div style={{ width: "28px", height: "28px", borderRadius: "50%", background: "linear-gradient(135deg, #3b82f6, #6366f1)" }} />
+                <img src="/serin-logo.svg" style={{ width: "25px", height: "15px", filter: "brightness(0) invert(1)", flexShrink: 0 }} />
               <span style={{ fontSize: "18px", fontWeight: 500, color: "#e8eaf6" }}>Serin</span>
             </div>
 
@@ -87,7 +86,7 @@ export default function RoleModal({ onSelect }: Props) {
                 <div style={{ fontSize: "11px", color: "#4b5a8a" }}>Talent</div>
               </button>
 
-              {/* Organization */}
+              {/* Org */}
               <button
                 onClick={() => handleSelect("organization")}
                 style={{

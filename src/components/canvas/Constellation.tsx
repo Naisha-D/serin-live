@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useMemo } from "react";
+import { useEffect, useRef } from "react";
 import { useOthers, useSelf } from "@/liveblocks/config";
 
 type Node = {
@@ -32,7 +32,7 @@ export default function Constellation() {
           },
         ]
       : []),
-    // Others — spread them based on connectionId
+    // Others
     ...others.map((user, index) => ({
       x: user.presence.role === "talent"
         ? 15 + ((index * 37) % 35)
@@ -65,7 +65,7 @@ export default function Constellation() {
       ctx.clearRect(0, 0, W, H);
       tick += 0.01;
 
-      // Draw divider line
+      // Drawing the divider line
       ctx.beginPath();
       ctx.moveTo(W / 2, 10);
       ctx.lineTo(W / 2, H - 10);

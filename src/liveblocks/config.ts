@@ -5,7 +5,7 @@ const client = createClient({
   publicApiKey: process.env.NEXT_PUBLIC_LIVEBLOCKS_PUBLIC_KEY!,
 });
 
-// Each user's real-time presence on the page (for cursor position, their role, their color)
+// Each user's realtime presence (for cursor position, their role, their color)
 export type Presence = {
   cursor: { x: number; y: number } | null;
   role: "talent" | "organization" | null;

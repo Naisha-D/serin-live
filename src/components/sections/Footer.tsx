@@ -183,6 +183,10 @@ export default function Footer() {
               height: "24px",
               borderRadius: "50%",
               background: "linear-gradient(135deg, #3b82f6, #6366f1)",
+              backgroundImage: "url('/serin-logo.svg')",
+              backgroundSize: "contain",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
             }}
           />
           <span style={{ fontSize: "14px", fontWeight: 500, color: "#e8eaf6" }}>

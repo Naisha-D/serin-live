@@ -27,7 +27,7 @@ export function clamp(value: number, min: number, max: number): number {
   return Math.min(Math.max(value, min), max);
 }
 
-// Formats large numbers cleanly (e.g. 1200 → 1.2k)
+// Formats large numbers
 export function formatCount(count: number): string {
   if (count >= 1000) return `${(count / 1000).toFixed(1)}k`;
   return count.toString();

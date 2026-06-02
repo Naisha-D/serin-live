@@ -108,7 +108,7 @@ export default function Navbar() {
           </div>
         )}
 
-        {/* CTA */}
+
         <a
           href="https://serin-ai.com"
           target="_blank"

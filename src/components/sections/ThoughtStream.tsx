@@ -50,10 +50,10 @@ export default function ThoughtStream() {
     if (stream.length > 8) stream.delete(stream.length - 1);
     }, []);
 
-  const clearThoughts = useMutation(({ storage }) => {
+  {/*const clearThoughts = useMutation(({ storage }) => {
     const stream = storage.get("thoughtStream");
     while (stream.length > 0) stream.delete(0);
-    }, []);
+    }, []);*/}
 
   function handleThoughtSubmit() {
     const trimmed = input.trim();
